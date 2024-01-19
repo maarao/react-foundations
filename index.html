@@ -8,15 +8,25 @@
     <script type="text/jsx">
         const app = document.getElementById('app');
 
-        function Header() {
-            return (<h1>HEHEHEHA</h1>);
-        }
+        function Header({ title }) {
+            return <h1>{title ? title : 'Default title'}</h1>;
+          }
 
         function HomePage() {
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
             return (
                 <div>
+
                     {/* Nesting the Header component */}
-                    <Header />
+                    <Header title="HEHEHA" />
+
+                    <ul>
+                        {names.map((name) => (
+                            <li key={name}>{name}</li>
+                        ))}
+                    </ul>
+
                 </div>
             );
         }
